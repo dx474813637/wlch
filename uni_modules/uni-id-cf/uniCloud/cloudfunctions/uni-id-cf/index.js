@@ -279,6 +279,7 @@ exports.main = async (event, context) => {
 				username,
 				password,
 				nickname,
+				role: ["MEMBER"],
 				inviteCode
 			});
 			if (res.code === 0) {
@@ -369,11 +370,14 @@ exports.main = async (event, context) => {
 					}
 				}
 				if (context.PLATFORM == "mp-weixin") {
-					let resUpdateUser = await uniID.updateUser({
+					let obj = {
 						uid: loginRes.uid,
 						sessionKey: loginRes.sessionKey
-					})
-					console.log(resUpdateUser);
+					}
+					if(loginRes.type == 'register') {
+						obj.role = ['MEMBER']
+					}
+					let resUpdateUser = await uniID.updateUser(obj)
 				}
 				delete loginRes.openid
 				delete loginRes.sessionKey

@@ -397,28 +397,26 @@
 					
 				}
 				else if(this.czModel.type == 2) {
+					let params = {
+						title: this.czModel.title,
+						content: this.czModel.content,
+						category_id: this.czModel.cate_id,
+						industry_id: this.czModel.industry_id,
+						status: status,
+					}
+					if(this.czModel.avatar[0]) params.avatar = this.czModel.avatar[0].url
 					if(this.handle == 'add') {
 						return await db.collection('creation').add({
-							title: this.czModel.title,
-							content: this.czModel.content,
-							category_id: this.czModel.cate_id,
-							industry_id: this.czModel.industry_id,
-							status: status,
+							...params,
 							type: 2,
-							avatar: this.czModel.avatar[0].url,
 						})
 					}else if(this.handle == 'update') {
 						return await db.collection('creation').where({
 							_id: this.id
 						}).update({
-							title: this.czModel.title,
-							content: this.czModel.content,
-							category_id: this.czModel.cate_id,
-							industry_id: this.czModel.industry_id,
-							status: status,
+							...params,
 							last_modify_date: db.getCloudEnv('$cloudEnv_now'),
 							last_modify_ip: db.getCloudEnv('$cloudEnv_clientIP'),
-							avatar: this.czModel.avatar[0].url,
 						})
 					}
 				}

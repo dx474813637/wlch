@@ -192,11 +192,13 @@
             }
         },
         "router" : {
-            "base" : ""
+            "base" : "",
+            "mode" : "hash"
         },
         "uniStatistics" : {
             "enable" : true
-        }
+        },
+        "title" : "雾林橙红小世界"
     },
     "_spaceID" : "",
     "vueVersion" : "2"

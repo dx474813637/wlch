@@ -137,7 +137,7 @@
 									<template v-if="item.type == 1">
 										<wlch-hb-card
 											:cid="item._id"
-											:imgs="item.huaban_imgs.map(ele => ele.url)"
+											:imgs="item.huaban_imgs"
 											:indexArr="[0, index]"
 											:desc="item.content"
 											:likeNum="item.like_count"
@@ -210,7 +210,7 @@
 										:time="item.create_date"
 										:cz_title="item.cz_id[0].title"
 										:cz_type="item.cz_id[0].type"
-										:cz_comment="item.comment_id[0].comment_content"
+										:cz_comment="item.comment_id[0]?item.comment_id[0].comment_content:''"
 										@cardHeight="handleCardHeight"
 									></wlch-dt-card>
 								</view>
@@ -380,7 +380,12 @@
 			
 		},
 		onReachBottom() {
-			this.$refs.udb_cz.loadMore()
+			if(this.current1 == 0) {
+				this.$refs.udb_cz.loadMore()
+			}else if(this.current1 == 1) {
+				this.$refs.udb_dt.loadMore()
+			}
+			
 		},
 		onReady() {
 			
@@ -446,11 +451,14 @@
 			handleCzLoad(data, ended, pagination) {
 				// console.log(data, ended, pagination);
 				// console.log(this.$refs.udb_cz.dataList);
+				// data.forEach(ele => {
+				// 	if(ele.hasOwnProperty('huaban_imgs')) ele.huaban_imgs = ele.huaban_imgs.map(item => item.url)
+				// })
 				this.tabsList[0].list = [...this.tabsList[0].list, ...data]
 				// console.log(this.tabsList[this.current1].list)
 			},
 			handleDtLoad(data, ended, pagination) {
-				console.log(data)
+				console.log(data, ended, pagination)
 				this.tabsList[1].list = [...this.tabsList[1].list, ...data]
 			},
 			async handleFollow() {
@@ -480,7 +488,9 @@
 			},
 			initStickyTop() {
 				const {safeArea} = uni.getSystemInfoSync()
+				// #ifdef MP-WEIXIN
 				this.offsetTop = this.navBarH + safeArea.top
+				// #endif
 			},
 			handleClickLeft() {
 				console.log('handleClickLeft')

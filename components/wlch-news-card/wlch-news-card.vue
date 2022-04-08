@@ -13,7 +13,8 @@
 			<view class="news-content u-flex">
 				<view class="item-left">
 					<view class="news-detail u-line-3">
-						{{content}}
+						<!-- {{content}} -->
+						<rich-text :nodes="content"></rich-text>
 					</view>
 				</view>
 				<view class="item-right"  v-if="avatar">

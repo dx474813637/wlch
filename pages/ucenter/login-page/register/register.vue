@@ -30,7 +30,8 @@ import mixin from '../common/login-page.mixin.js';
 					"username": "",
 					"nickname": "",
 					'password':'',
-					'pwd2':''
+					'pwd2':'',
+					"role": ["member"]
 				},
 				rules,
 				agree:false

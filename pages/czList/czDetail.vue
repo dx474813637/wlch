@@ -68,7 +68,10 @@
 							:singleSize="multipleSize"
 						></u-album>
 					</view>
-					<view class="cz-content">{{data.content}}</view>
+					<view class="cz-content">
+						<u-parse :content="data.content"></u-parse>
+						<!-- {{data.content}} -->
+					</view>
 				</view>
 				
 			</unicloud-db>

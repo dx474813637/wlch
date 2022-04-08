@@ -20,7 +20,10 @@
 					@albumWidth="handleAlbumWidth"
 				></u-album>	
 			</view>
-			<view class="hb-desc u-line-2" @click="handleClickHb">{{desc}}</view>
+			<view class="hb-desc u-line-2" @click="handleClickHb">
+						<rich-text :nodes="desc"></rich-text>
+						<!-- {{desc}} -->
+						</view>
 			
 			
 		</view>

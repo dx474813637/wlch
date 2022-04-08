@@ -56,13 +56,13 @@ export default {
 	//关于应用
 	"about": {
 		//应用名称
-		"appName": "uni-starter",
+		"appName": "雾林橙红小世界",
 		//应用logo
 		"logo": "/static/logo.png",
 		//公司名称
-		"company": "北京xx网络技术有限公司",
+		"company": "雾林橙红",
 		//口号
-		"slogan": "云端一体应用快速开发模版",
+		"slogan": "雾林橙红",
 		//政策协议
 		"agreements": [{
 				"title": "用户服务协议", //如果开启了多语言国际化，本配置将失效。请在 lang/en.js 和 lang/zh-Hans.js中配置
@@ -79,13 +79,13 @@ export default {
 		"version":"1.0.0" //用于非app端显示，app端自动获取
 	},
 	"download":{ //用于生成二合一下载页面
-		"ios":"https://itunes.apple.com/cn/app/hello-uni-app/id1417078253?mt=8",
-		"android":"https://vkceyugu.cdn.bspapp.com/VKCEYUGU-97fca9f2-41f6-449f-a35e-3f135d4c3875/6d754387-a6c3-48ed-8ad2-e8f39b40fc01.apk"
+		"ios":"",
+		"android":""
 	},
 	//用于打开应用市场评分界面
 	"marketId":{
-		"ios":"id1417078253",
-		"android":"123456"
+		"ios":"",
+		"android":""
 	},
 	//配置多语言国际化。i18n为英文单词 internationalization的首末字符i和n，18为中间的字符数 是“国际化”的简称
 	"i18n":{

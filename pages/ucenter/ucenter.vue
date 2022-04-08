@@ -104,11 +104,11 @@
 							"icon": "hand-thumbsup"
 						},
 						//#endif
-						{
-							"title":this.$t('mine.readArticles'),
-							"to": '/pages/ucenter/read-news-log/read-news-log',
-							"icon": "flag"
-						},
+						// {
+						// 	"title":this.$t('mine.readArticles'),
+						// 	"to": '/pages/ucenter/read-news-log/read-news-log',
+						// 	"icon": "flag"
+						// },
 						{
 							"title": this.$t('mine.myScore'),
 							"to": '',
@@ -132,11 +132,11 @@
 						"to": '/pages/ucenter/settings/settings',
 						"icon": "gear"
 					}],
-					[{
-						"title": this.$t('mine.about'),
-						"to": '/pages/ucenter/about/about',
-						"icon": "info"
-					}]
+					// [{
+					// 	"title": this.$t('mine.about'),
+					// 	"to": '/pages/ucenter/about/about',
+					// 	"icon": "info"
+					// }]
 				],
 				listStyles: {
 					"height": "150rpx", // 边框高度

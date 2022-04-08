@@ -65,7 +65,8 @@
 </template>
 
 <script>
-	import {mapState} from 'vuex'
+	const db = uniCloud.database();
+	import {mapState, mapGetters} from 'vuex'
 	export default {
 		name:"tabbar",
 		props: {
@@ -103,10 +104,13 @@
 		computed: {
 			...mapState('tabbar', {
 				menuList: state => state.menuList
+			}),
+			...mapGetters({
+				userInfo: 'user/info',
 			})
 		},
 		methods: {
-			handleTabbarClick(item) {
+			async handleTabbarClick(item) {
 				if(item.path) {
 					if(item.name == 'list') {
 						uni.reLaunch({

@@ -7,7 +7,7 @@
 						<i class="icon-wlch-search iconfont-wlch"></i>
 					</navigator>
 					<view class="item item-tabs" :style="{
-						width: tabsWidth + 'px'
+						width: tabsWidth
 					}">
 						<u-tabs 
 							:list="menus" 
@@ -26,6 +26,7 @@
 		<view class="content-w" >
 			
 			<swiper 
+				v-if="menus[current]"
 				class="c-swiper" :style="{
 					height:  menus[current].swiperH  ,
 					paddingTop: offsetTop+'px'
@@ -79,7 +80,7 @@
 									<template v-if="item.type == 1">
 										<wlch-hb-card
 											:cid="item._id"
-											:imgs="item.huaban_imgs.map(imgs => imgs.url)"
+											:imgs="item.huaban_imgs"
 											:indexArr="[i, index]"
 											:desc="item.content"
 											:likeNum="item.like_count"
@@ -144,7 +145,7 @@
 				loadingText: '努力加载中',
 				loadmoreText: '上拉或点击加载更多',
 				nomoreText: '实在没有了',
-				tabsWidth: 0,
+				tabsWidth: '100%',
 				current: 0,
 				itemStyle: {},
 				inactiveStyle: {
@@ -243,8 +244,10 @@
 			}
 		},
 		async onLoad() {
+			 // #ifdef MP-WEIXIN
 			 let menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-			 this.tabsWidth = menuButtonInfo.left - 40;
+			 this.tabsWidth = (menuButtonInfo.left - 40) + 'px';
+			 // #endif
 			 
 			 if(!this.indexMenus || this.indexMenus.length == 0) {
 				 console.log('load')

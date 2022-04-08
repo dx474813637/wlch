@@ -45,7 +45,7 @@
 						<template v-if="item.type == 1">
 							<wlch-hb-card
 								:cid="item._id"
-								:imgs="item.huaban_imgs.map(imgs => imgs.url)"
+								:imgs="item.huaban_imgs"
 								:desc="item.content"
 								:likeNum="item.like_count"
 								:commentsNum="item.comment_count"
